@@ -16,4 +16,5 @@ $manager = $gum->CreateManager();
 //$manager->CreatePermission(1,'add_file','添加文件');
 //echo $manager->AssignUserRole(1,7);
 //echo $manager->AssignRolePermission(7,2);
-echo $manager->RemoveRolePermission(7,1);
+//echo $manager->RemoveRolePermission(7,1);
+echo $gum->CheckPermission(1,1,'add_file');

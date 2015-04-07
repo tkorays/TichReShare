@@ -47,6 +47,24 @@ class Gum{
     }
     /*　检查是否有权限 */
     public function CheckPermission($uid,$type,$name){
+        $rid = $this->db->get('gum_user_role','rid',array('uid'=>$uid));
+
+        if(!$rid){
+            return 0;
+        }
+        $pid = $this->db->get('gum_permission','id',array(
+            'AND'=>array(
+                'type'=>$type,
+                'name'=>$name
+            )
+        ));
+        if(!$pid){
+            return 0;
+        }
+        return $this->db->get('gum_role_permission','id',array(
+            'rid'=>$rid,
+            'pid'=>$pid
+        ));
 
     }
 
