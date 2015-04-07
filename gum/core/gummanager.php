@@ -1,4 +1,4 @@
-<?php
+<?php if(!defined('INVOKER')) exit('no direct access allowed!');
 class GumManager{
     private $db;
     public function __construct($medoo){

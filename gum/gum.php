@@ -45,7 +45,12 @@ class Gum{
         $this->uid = call_user_func(array($object,$func),$data); // 返回一个uid
         return $this->uid;
     }
-    /*　检查是否有权限 */
+    /*　检查是否有权限
+     * type:
+     * 1 operation
+     * 2 url
+     * 3 resource
+     */
     public function CheckPermission($uid,$type,$name){
         $rid = $this->db->get('gum_user_role','rid',array('uid'=>$uid));
 
