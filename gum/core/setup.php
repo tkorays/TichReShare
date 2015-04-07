@@ -14,7 +14,9 @@ class Setup{
         }
     }
     public function Work($prefix){
-
+        $sql = $this->gen_create_table_sql($prefix,'user',
+            "`id` int not null auto_increment,`uid` int not null,primary key(`id`)");
+        $this->pdo->exec($sql);
         $sql = $this->gen_create_table_sql($prefix,'role',
             "`id` int not null auto_increment,`name` varchar(32) not null,`description` varchar(128) not null,primary key(`id`)");
         $this->pdo->exec($sql);
