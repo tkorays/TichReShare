@@ -14,4 +14,4 @@ $gum = new Gum('localhost','gum','root','mysql123');
 $manager = $gum->CreateManager();
 //$manager->CreateRole('测试','测试人员');
 //$manager->CreatePermission(1,'delete_file','删除文件');
-echo $manager->AssignUserRole(3,7);
+echo $manager->AssignUserRole(1,6);
