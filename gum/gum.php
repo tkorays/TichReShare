@@ -5,7 +5,7 @@ define('INVOKER',"1.0");
  */
 class Gum{
     private $db_info;
-    public $default_user;
+    private $uid=0;
     public static $GRUNT  =  1;
     public static $DENY   =  0;
     public  $db;
@@ -42,8 +42,8 @@ class Gum{
     }
     /* 验证，传入自己定义的对象和函数以及数据，进行验证，得到一个GumUser类 */
     public function Auth($object,$func,$data){
-        $id = call_user_func(array($object,$func),$data); // 返回一个GumUser对象
-        $this->default_user = new GumUser($id);
+        $this->uid = call_user_func(array($object,$func),$data); // 返回一个uid
+        return $this->uid;
     }
     /*　检查是否有权限 */
     public function CheckPermission($uid,$type,$name){
@@ -62,10 +62,15 @@ class Gum{
             return 0;
         }
         return $this->db->get('gum_role_permission','id',array(
+            'AND'=>array(
             'rid'=>$rid,
             'pid'=>$pid
-        ));
+            )
+        ))?1:0;
 
+    }
+    public function GetUid(){
+        return $this->uid;
     }
 
     public function Setup(){
