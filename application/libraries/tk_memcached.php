@@ -1,9 +1,9 @@
 <?php
 
-class Memcached{
+class TK_Memcached{
     private $memcached = null;
     public function __construct(){
-        //$this->memcached = new Memcached;
+        $this->memcached = new Memcached;
     }
 
     public function get($key){
