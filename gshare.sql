@@ -325,8 +325,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `true_name` varchar(32) NOT NULL COMMENT '姓名',
   `image` varchar(128) NOT NULL COMMENT '个人图像',
   `school_id` int(11) NOT NULL DEFAULT '0' COMMENT '学校id',
-  `reg_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
-  `last_login_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上次注册时间',
+  `reg_time` datetime NOT NULL COMMENT '注册时间',
+  `last_login_time` datetime NOT NULL COMMENT '上次注册时间',
   `last_login_ip` varchar(16) NOT NULL COMMENT '上次登录ip',
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
