@@ -282,6 +282,9 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder);
 
+
+include_once 'platform.php';
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

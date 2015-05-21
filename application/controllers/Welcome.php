@@ -22,10 +22,11 @@ class Welcome extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('muser',null);
+        $this->load->library('site');
     }
     public function index()
     {
-        $this->load->view('welcome_message');
+        $this->site->display_simple('test.tpl');
     }
     public function login(){
         $this->load->view('test',array(
