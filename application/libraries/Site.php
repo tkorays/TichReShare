@@ -23,7 +23,10 @@ class Site{
         $this->smarty->setCacheDir(SMARTY_CACHE_PATH);
         $this->smarty->debugging = SMARTY_DEBUG;
 
-        $this->smarty->assign('site',$this->ci->config->item('site'));
+        $config = $this->ci->config->item('site');
+        $this->smarty->assign('site',$config);
+        $this->smarty->assign('url_base',URL_BASE);
+        $this->smarty->assign('url_public',URL_PUBLIC);
     }
 
     /**

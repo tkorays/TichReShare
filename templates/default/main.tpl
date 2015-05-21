@@ -6,11 +6,7 @@
     <title>{$title} - {$site['title']}</title>
     <meta name="keywords" content="{$site['keywords']}">
     <meta name="descritpion" content="{$site['description']}">
-    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/static/css/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/static/css/all.min.css" />
-    <link type="text/css" rel="stylesheet" href="/static/js/lib/validator/jquery.validator.css" />
-    <link type="text/css" rel="stylesheet" href="/static/js/lib/tinyeditor/style.css" />
+    <link type="text/css" rel="stylesheet" href="{$url_public}/css/bootstrap.min.css" />
 </head>
 <body>
 {include file="parts/header.tpl"}
