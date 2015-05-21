@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 define('PLATFORM','C9'); // LOCAL,SAE,C9
 
-
+// ------------------------两个根目录需要修改---------------------------------
 define('ROOT_PATH',dirname(__FILE__));
 if(PLATFORM=='SAE' || PLATFORM=='C9'){
     define('PRIVATE_PATH',ROOT_PATH.'/private');
@@ -20,7 +20,7 @@ define('TEMP_PATH',PRIVATE_PATH.'/temp');
 define('USE_MEMCACHE',false); // 使用memcached
 define('USE_LOGGING',false); // 使用日志
 
-
+// --------------------------模板目录需要修改----------------------------------
 define('SMARTY_TPL_PATH', ROOT_PATH.'/templates/default'); // 这个目录最好修改下放在外面
     define('SMARTY_DEBUG',false);
 if(PLATFORM=='SAE'){
@@ -35,6 +35,8 @@ if(PLATFORM=='SAE'){
 define('UPLOAD_FILE_PATH',UPLOAD_PATH.'/files');
 define('UPLOAD_IMAGE_PATH',UPLOAD_PATH.'/images');
 
+
+// -----------------------------URL需要修改-----------------------------------
 if(PLATFORM=='SAE'){
     define('URL_BASE','http://gshare.tkorays.com/index.php');
     define('URL_PUBLIC','http://gshare.tkorays.com/public');
@@ -45,6 +47,33 @@ if(PLATFORM=='SAE'){
     define('URL_BASE','http://gshare.tkorays.com/index.php');
     define('URL_PUBLIC','http://gshare.tkorays.com/public');
 }
+
+// ----------------------------数据库配置需要修改-----------------------------
+if(PLATFORM=='SAE'){
+    $hostname = 'localhost';
+    $database = 'gshare';
+    $username = 'root';
+    $password = 'mysql123';
+    $port     = 3306;
+}elseif(PLATFORM=='C9'){
+    $hostname = getenv('IP');
+    $database = 'c9';
+    $username = getenv('C9_USER');
+    $password = '';
+    $port     = 3306;
+}else{
+    $hostname = 'localhost';
+    $database = 'gshare';
+    $username = 'root';
+    $password = 'mysql123';
+    $port     = 3306;
+}
+define('DB_HOSTNAME',$hostname);
+define('DB_DATABASE',$database);
+define('DB_USERNAME',$username);
+define('DB_PASSWORD',$password);
+define('DB_PORT',$port);
+
 
 ini_set('date.timezone','Asia/Shanghai');
 
