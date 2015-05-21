@@ -22,6 +22,8 @@ class Site{
         $this->smarty->setCompileDir(SMARTY_COMPILE_PATH);
         $this->smarty->setCacheDir(SMARTY_CACHE_PATH);
         $this->smarty->debugging = SMARTY_DEBUG;
+
+        $this->smarty->assign('site',$this->ci->config->item('site'));
     }
 
     /**
