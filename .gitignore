@@ -2,4 +2,4 @@
 *.swap
 .idea/
 node_modules/
-tpl_c/*.php
+*.tpl.php
