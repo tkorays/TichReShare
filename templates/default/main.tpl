@@ -13,9 +13,8 @@
     <link type="text/css" rel="stylesheet" href="/static/js/lib/tinyeditor/style.css" />
 </head>
 <body>
-
-{include file="header.tpl"}
+{include file="parts/header.tpl"}
 {include file="{$content_tpl}"}
-{include file="footer.tpl"}
+{include file="parts/footer.tpl"}
 </body>
 </html>

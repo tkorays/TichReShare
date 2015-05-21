@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['site'] = array(
+    'name'=>'GShare',
     'title'=>'GShare',
     'subtitle'=>'教学资源共享平台',
     'keywords'=>'共享,资源,教学',
