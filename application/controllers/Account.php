@@ -7,11 +7,20 @@ class Account extends CI_Controller{
         $this->load->library('site');
         
         $this->load->model('account_model','maccount');
-
+    }
+    public function index(){
+        echo 'ss';
     }
     public function login(){
-        //var_dump($this->maccount->Auth('tkorays@hotmail.com','123456'));
         $this->site->display('account/login.tpl','登录',null);
+    }
+    public function login_do(){
+        $ret = $this->maccount->Auth($this->input->post());
+        if(ret_ok($ret)){
+            $this->site->go('/my/');
+        }else{
+            $this->site->go('/account/login');
+        }
     }
     
     // 注册三步骤

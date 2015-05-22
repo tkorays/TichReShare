@@ -10,7 +10,9 @@ class Account_model extends CI_Model{
         $this->load->library('medoo',null,'mdb');    
         
     }
-    public function Auth($name,$pwd){
+    public function Auth($post){
+        $name = $post['email'];
+        $pwd = $post['password'];
         $ret = $this->mdb->get($this->table,array('uid','status'),array(
             'AND'=>array('email'=>$name,'password'=>md5($pwd))
         ));

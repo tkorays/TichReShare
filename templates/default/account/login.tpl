@@ -1,16 +1,11 @@
 {include file="parts/header.tpl"}
 
-<div style="height: 400px;background-color: #002D57;">
+<div style="height: 420px;background-color: #002D57;">
     <div style="width: 900px;margin: 0 auto;">
-        <div style="width: 400px;height: 400px;padding: 40px;background-color: #fff;float: right;">
+        <div style="width: 400px;height: 420px;padding: 40px;background-color: #fff;float: right;">
             <h4>登录</h4>
             <hr>
-            <form class="form-horizontal register-form" action="/account/login?action=do&from={$data['from_url']}" method="post" style="width: 160px;margin-left: auto;margin-right:auto;">
-                {if $data['error'] eq 1}
-                    <div class="form-group">
-                        <p style="color: #f2777a;">{$data['error_msg']}</p>
-                    </div>
-                {/if}
+            <form class="form-horizontal register-form" action="/account/login_do" method="post" style="width: 160px;margin-left: auto;margin-right:auto;">
                 <div class="form-group">
                     <input name="email" class="form-control" type="text" placeholder="邮箱" data-rule="邮箱:required;email;">
                 </div>
@@ -21,6 +16,12 @@
                     <button  class="btn-submit jx-btn bg-primary" type="submit">登录</button>
                 </div>
             </form>
+            <div>
+                <p></p>
+                <hr>
+                <p>第三方账号登录</p>
+                <a href="#"><img src="{$url_public}/img/login-third-party.png"></a>
+            </div>
             <div>
                 <p></p>
                 <hr>
