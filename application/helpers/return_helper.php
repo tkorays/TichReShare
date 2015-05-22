@@ -8,3 +8,7 @@ function ret($code,$msg,$data=null){
         'data' => $data
     );
 }
+
+function ret_ok($ret){
+    return isset($ret['code']) && $ret['code']==1;
+}

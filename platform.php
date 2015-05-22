@@ -41,7 +41,7 @@ if(PLATFORM=='SAE'){
     define('URL_BASE','http://gshare.tkorays.com/index.php');
     define('URL_PUBLIC','http://gshare.tkorays.com/public');
 }elseif(PLATFORM=='C9'){
-    define('URL_BASE','https://tichreshare-tkorays.c9.io/index.php');
+    define('URL_BASE','https://tichreshare-tkorays.c9.io');
     define('URL_PUBLIC','https://tichreshare-tkorays.c9.io/public');
 }else{
     define('URL_BASE','http://gshare.tkorays.com/index.php');
@@ -74,6 +74,12 @@ define('DB_USERNAME',$username);
 define('DB_PASSWORD',$password);
 define('DB_PORT',$port);
 
+
+// 邮箱设置
+define('SMTP_HOST','smtp.163.com');
+define('SMTP_USER','whugshare@163.com');
+define('SMTP_PASS','hdhbscfdjicafnea');
+define('SMTP_PORT',25);
 
 ini_set('date.timezone','Asia/Shanghai');
 

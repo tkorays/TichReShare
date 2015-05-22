@@ -2,7 +2,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Home extends CI_Controller {
 
     /**
      * Index Page for this controller.
@@ -21,23 +21,10 @@ class Welcome extends CI_Controller {
      */
     public function __construct(){
         parent::__construct();
-        $this->load->model('muser',null);
         $this->load->library('site');
     }
     public function index()
     {
         $this->site->display_simple('test.tpl');
-    }
-    public function login(){
-        $this->load->view('test',array(
-                'data'=>$this->muser->Auth('tkorays@hotmail.com','123456'))
-        );
-    }
-    public  function getdata(){
-        echo json_encode(array(
-            'code'=>1,
-            'msg'=>'ok',
-            'data'=>'00'
-        ));
     }
 }

@@ -1,3 +1,5 @@
+{include file="parts/header.tpl"}
+
 <div style="height: 400px;background-color: #002D57;">
     <div style="width: 900px;margin: 0 auto;">
         <div style="width: 400px;height: 400px;padding: 40px;background-color: #fff;float: right;">
@@ -22,8 +24,15 @@
             <div>
                 <p></p>
                 <hr>
-                还没有账号？赶紧<a href="/account/register">注册</a>
+                还没有账号？赶紧<a href="{$url_base}/account/register">注册</a>
             </div>
         </div>
     </div>
 </div>
+
+{include file="parts/footer.tpl"}
+<script src="{$url_public}/js/lib/validator/jquery.validator.js"></script>
+<script src="{$url_public}/js/lib/validator/local/zh_CN.js"></script>
+<script>
+    
+</script>
