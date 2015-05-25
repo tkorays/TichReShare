@@ -18,7 +18,10 @@ class Account_model extends CI_Model{
         ));
             
         if($ret['uid'] && $ret['status']){
-            return ret(1,'ok',array());
+            return ret(1,'ok',array(
+                'uid'=>$ret['uid'],
+                'username'=>$ret['username']
+                ));
         }elseif(!$ret['uid']){
             return ret(0,'用户名或密码错误!');
         }else{
@@ -85,5 +88,8 @@ class Account_model extends CI_Model{
                 return ret(1,'ok');
             }
         }
+    }
+    public function Info($uid){
+        return $this->mdb->get($this->table,array('uid','email','true_name','image','school_id','reg_time','last_login_time','last_login_ip'),array('uid'=>$uid));
     }
 }

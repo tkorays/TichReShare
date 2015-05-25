@@ -4,23 +4,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends CI_Controller{
     public function __construct(){
         parent::__construct();
-        $this->load->library('site');
         
         $this->load->model('account_model','maccount');
     }
-    public function index(){
-        echo 'ss';
+    private function need_login(){
+        if($this->usersession->is_login()){
+            $this->site->go('/my');
+        }else{
+            $this->site->go('/account/login');
+        }
     }
+    
+    public function index(){
+        $this->need_login();
+    }
+    /**
+     * 登录页面 
+     */
     public function login(){
+        if($this->usersession->is_login()){
+            $this->site->go('/my');
+            exit;
+        }
         $this->site->display('account/login.tpl','登录',null);
     }
+    /**
+     * 登录处理
+     */ 
     public function login_do(){
         $ret = $this->maccount->Auth($this->input->post());
         if(ret_ok($ret)){
+            $this->usersession->set($ret['data']['uid'],$ret['data']['username']);
             $this->site->go('/my/');
         }else{
             $this->site->go('/account/login');
         }
+    }
+    /**
+     * 退出登录 
+     */
+    public function logout(){
+        $this->usersession->clear();
+        $this->site->go('/account/login');
     }
     
     // 注册三步骤
